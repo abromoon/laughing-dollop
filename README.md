@@ -27,12 +27,17 @@
 
 ### Деплой на GitHub Pages
 
-1. Запушить этот репозиторий на GitHub.
-2. В настройках репозитория: **Settings → Pages → Build and deployment → Source:
-   Deploy from a branch**, ветка `main`, папка `/ (root)`.
-3. Страница появится на `https://<username>.github.io/<repo>/`.
+Деплой автоматический, через `.github/workflows/deploy.yml` (GitHub Actions):
+каждый push в `main` собирает и публикует сайт заново.
 
-Сборка не требуется — `index.html` лежит в корне.
+1. Запушить этот репозиторий на GitHub.
+2. Один раз в настройках репозитория: **Settings → Pages → Build and
+   deployment → Source: GitHub Actions**.
+3. После первого прогона workflow (вкладка **Actions**) страница появится на
+   `https://<username>.github.io/<repo>/`.
+
+Сборка не требуется — workflow просто публикует содержимое репозитория как есть
+(`index.html` лежит в корне).
 
 ## CLI-версия (Python)
 
