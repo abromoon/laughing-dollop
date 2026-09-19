@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обрезка в квадрат</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="app__header">
+    <h1>Обрезка изображения в квадрат</h1>
+    <p class="app__subtitle">
+      Перетащите изображение, выберите якорь и сохраните результат.
+      Всё происходит прямо в браузере — изображение никуда не отправляется и нигде не сохраняется.
+    </p>
+  </header>
+
+  <section id="dropzone" class="dropzone" tabindex="0" aria-label="Область для перетаскивания изображения">
+    <input type="file" id="file-input" accept="image/*" hidden>
+    <div class="dropzone__content">
+      <svg class="dropzone__icon" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
+        <path fill="currentColor" d="M12 16a1 1 0 0 1-1-1V6.41L7.71 9.71a1 1 0 1 1-1.42-1.42l5-5a1 1 0 0 1 1.42 0l5 5a1 1 0 1 1-1.42 1.42L13 6.41V15a1 1 0 0 1-1 1z"/>
+        <path fill="currentColor" d="M5 18a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/>
+      </svg>
+      <p><strong>Перетащите изображение сюда</strong></p>
+      <p class="dropzone__hint">или <button type="button" id="browse-btn" class="link-btn">выберите файл</button></p>
+    </div>
+  </section>
+
+  <section id="editor" class="editor" hidden>
+    <div class="editor__preview-wrap">
+      <div id="preview-frame" class="preview-frame">
+        <img id="preview-img" alt="Предпросмотр изображения">
+        <div id="crop-overlay" class="crop-overlay" aria-hidden="true"></div>
+      </div>
+      <p id="dimensions" class="dimensions"></p>
+    </div>
+
+    <div class="editor__controls">
+      <label class="field">
+        <span class="field__label">Якорь обрезки</span>
+        <select id="anchor-select" class="select">
+          <option value="top">Сверху</option>
+          <option value="center" selected>По центру</option>
+          <option value="bottom">Снизу</option>
+          <option value="left">Слева</option>
+          <option value="right">Справа</option>
+        </select>
+      </label>
+
+      <p id="format-note" class="format-note" hidden></p>
+
+      <div class="editor__actions">
+        <button type="button" id="reset-btn" class="btn btn--ghost">Другое изображение</button>
+        <button type="button" id="confirm-btn" class="btn btn--primary">Подтвердить и скачать</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="app__footer">
+    <p>Обработка происходит локально в браузере. Файлы не загружаются на сервер и не сохраняются между сеансами.</p>
+  </footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
