@@ -127,6 +127,10 @@ body {
   gap: 20px;
 }
 
+.editor[hidden] {
+  display: none;
+}
+
 .editor__preview-wrap {
   display: flex;
   flex-direction: column;
@@ -138,7 +142,6 @@ body {
   display: inline-block;
   align-self: flex-start;
   max-width: 100%;
-  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
   background: var(--surface);
